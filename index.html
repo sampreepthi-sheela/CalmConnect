@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlindConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+    <!--NAVIGATION BAR -->
+ <nav class="navbar">
+    <h2 class="logo">CalmConnect</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">How</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Start</a></li>
+    </ul>
+</nav>   
+
+<!-- HERO -->
+<section class="hero ">
+    <h1>Where strangers listen without judgment</h1>
+    <p>Connect anonymously. Share your thoughts. Feel heard.</p>
+    <button>Start a Connection</button>
+</section>
+
+<section class="info-section fade-in">
+    <div class="info-container">
+
+        <!-- WHY -->
+        <div class="info-box">
+            <h2>Why CalmConnect?</h2>
+            <p>People often feel unheard and judged. CalmConnect creates a safe, anonymous space where you can express your thoughts freely and feel understood.</p>
+        </div>
+
+        <!-- HOW -->
+        <div class="info-box">
+            <h2>How it works</h2>
+            <ul>
+                <li>Choose how you feel</li>
+                <li>Get matched anonymously</li>
+                <li>Start a meaningful chat</li>
+                <li>Reflect and feel better</li>
+            </ul>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="info-box">
+            <h2>Features</h2>
+            <ul>
+                <li>Anonymous conversations</li>
+                <li>Mood-based matching</li>
+                <li>Guided prompts</li>
+                <li>Safe & kind environment</li>
+                <li>Reflection journaling</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- SAFETY -->
+<section class="safety fade-in">
+    <h2>Your Safety Matters</h2>
+    <p>No personal data. No judgment. Only kindness.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta fade-in">
+    <h2>Start your first connection today</h2>
+    <button>Begin Now</button>
+</section>
+
+<section class="chat-preview fade-in">
+    <h2>A Safe Conversation Space</h2>
+
+   <div class="chat-box">
+
+    <div class="chat-header">
+        <span>Cloud_27</span>
+        <div class="chat-controls">
+            <button onclick="reportUser()">Report</button>
+            <button onclick="showSOS()">SOS</button>
+        </div>
+    </div>
+
+    <div class="message stranger">
+        <p>I feel really overwhelmed today...</p>
+    </div>
+
+    <div class="message you">
+        <p>I'm here. Do you want to talk about it?</p>
+    </div>
+
+    <div class="message stranger">
+        <p>It just feels like no one understands me.</p>
+    </div>
+
+    <div class="chat-footer">
+        <span id="timer">05:00</span>
+    </div>
+
+</div>
+</section>
+
+<div id="sos-popup" class="sos-popup">
+    <div class="sos-content">
+        <h3>You are not alone 💙</h3>
+        <p>If you're in distress, please reach out to someone you trust or a helpline.</p>
+        <button onclick="closeSOS()">Close</button>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <p>You are not alone.</p>
+</footer>
+
+</body>
+<script src="script.js"></script>
+</html>
