@@ -1,3 +1,5 @@
+console.log("JS loaded");
+
 // FADE-IN ANIMATION
 const elements = document.querySelectorAll('.fade-in');
 
@@ -10,16 +12,6 @@ function showOnScroll() {
             el.classList.add('show');
         }
     });
-}
-
-// MATCHING LOADER
-function startMatching() {
-    const loader = document.getElementById("loader");
-    loader.style.display = "block";
-
-    setTimeout(() => {
-        loader.innerHTML = "Connected 💙";
-    }, 3000);
 }
 
 // DARK MODE
@@ -133,3 +125,49 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("scroll", showOnScroll);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const sosBtn = document.getElementById("sosBtn");
+    const closeBtn = document.getElementById("closeSOS");
+
+    const loader = document.getElementById("loader");
+    const popup = document.getElementById("sos-popup");
+
+    // START MATCHING
+   document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const loader = document.getElementById("loader");
+
+    if (matchBtn && loader) {
+        matchBtn.addEventListener("click", function () {
+
+            console.log("Button clicked"); // DEBUG
+
+            loader.style.display = "block";
+
+            setTimeout(() => {
+                loader.innerHTML = "Connected 💙";
+            }, 3000);
+        });
+    }
+
+});
+
+    // SOS OPEN
+    if (sosBtn) {
+        sosBtn.addEventListener("click", function () {
+            popup.style.display = "block";
+        });
+    }
+
+    // SOS CLOSE
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+            popup.style.display = "none";
+        });
+    }
+
+});
