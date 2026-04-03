@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <title>BlindConnect</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 </head>
 
 <body>
+    
     <!--NAVIGATION BAR -->
  <nav class="navbar">
     <h2 class="logo">CalmConnect</h2>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">How</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Start</a></li>
-    </ul>
-</nav>   
 
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">How</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Start</a></li>
+        </ul>
+
+        <button id="darkBtn" onclick="toggleDark()">🌙</button>
+    </div>
+</nav>
 <!-- HERO -->
 <section class="hero ">
     <h1>Where strangers listen without judgment</h1>
     <p>Connect anonymously. Share your thoughts. Feel heard.</p>
-    <button>Start a Connection</button>
+    <div id="loader" class="loader">
+    <p>Finding someone who understands you...</p>
+</div>
 </section>
+
+
 
 <section class="info-section fade-in">
     <div class="info-container">
@@ -32,7 +42,9 @@
         <!-- WHY -->
         <div class="info-box">
             <h2>Why CalmConnect?</h2>
-            <p>People often feel unheard and judged. CalmConnect creates a safe, anonymous space where you can express your thoughts freely and feel understood.</p>
+            <p>People often feel unheard and judged. 
+                CalmConnect creates a safe, anonymous space where you can express your thoughts 
+                freely and feel understood.</p>
         </div>
 
         <!-- HOW -->
@@ -67,58 +79,107 @@
     <p>No personal data. No judgment. Only kindness.</p>
 </section>
 
-<!-- CTA -->
-<section class="cta fade-in">
-    <h2>Start your first connection today</h2>
-    <button>Begin Now</button>
-</section>
+<button class="StartMatching" id="matchBtn">
+    Find a Connection
+</button>
 
 <section class="chat-preview fade-in">
     <h2>A Safe Conversation Space</h2>
 
-   <div class="chat-box">
+    <div class="chat-box">
 
-    <div class="chat-header">
-        <span>Cloud_27</span>
-        <div class="chat-controls">
-            <button onclick="reportUser()">Report</button>
-            <button onclick="showSOS()">SOS</button>
+        <!-- HEADER -->
+        <div class="chat-header">
+            <div class="user-info">
+                <span class="dot"></span>
+                <strong>Cloud_27</strong>
+            </div>
+
+            <div class="chat-controls">
+                <button onclick="reportUser()">⚠️</button>
+                <button id="sosBtn">🆘</button>          
+              </div>
         </div>
-    </div>
 
-    <div class="message stranger">
-        <p>I feel really overwhelmed today...</p>
-    </div>
+        <!-- MESSAGES -->
+        <div class="chat-messages">
 
-    <div class="message you">
-        <p>I'm here. Do you want to talk about it?</p>
-    </div>
+            <div class="message stranger">
+                <p>I feel really overwhelmed today...</p>
+                <span class="time">10:02</span>
+            </div>
 
-    <div class="message stranger">
-        <p>It just feels like no one understands me.</p>
-    </div>
+            <div class="message you">
+                <p>I'm here. Do you want to talk about it?</p>
+                <span class="time">10:03</span>
+            </div>
 
-    <div class="chat-footer">
-        <span id="timer">05:00</span>
-    </div>
+            <div class="message stranger">
+                <p>It just feels like no one understands me.</p>
+                <span class="time">10:04</span>
+            </div>
 
-</div>
+            <p id="typing" class="typing">Cloud_27 is typing...</p>
+
+        </div>
+
+        <!-- INPUT BAR -->
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." />
+            <button>➤</button>
+        </div>
+
+        <!-- TIMER -->
+        <div class="chat-footer">
+            <span id="timer">05:00</span>
+        </div>
+
+    </div>
 </section>
 
+<section>
 <div id="sos-popup" class="sos-popup">
     <div class="sos-content">
         <h3>You are not alone 💙</h3>
         <p>If you're in distress, please reach out to someone you trust or a helpline.</p>
-        <button onclick="closeSOS()">Close</button>
+        <button id="closeSOS()">Close</button>
     </div>
 </div>
-
+</section>
 
 <!-- FOOTER -->
-<footer>
-    <p>You are not alone.</p>
-</footer>
+<footer class="footer">
 
-</body>
+    <div class="footer-content">
+
+        <!-- BRAND -->
+        <div class="footer-section">
+            <h3>CalmConnect</h3>
+            <p>You are not alone.</p>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: support@calmconnect.com</p>
+            <p>Phone: +91 98765 43210</p>
+        </div>
+
+        <!-- LINKS -->
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <p><a href="#">Home</a></p>
+            <p><a href="#">Features</a></p>
+            <p><a href="#">Start</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 CalmConnect. All rights reserved.</p>
+    </div>
+
+</footer>
 <script src="script.js"></script>
+</body>
 </html>
