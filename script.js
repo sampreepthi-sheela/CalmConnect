@@ -1,3 +1,4 @@
+// FADE-IN ANIMATION
 const elements = document.querySelectorAll('.fade-in');
 
 function showOnScroll() {
@@ -11,16 +12,48 @@ function showOnScroll() {
     });
 }
 
-// Run once when page loads
-window.addEventListener('load', showOnScroll);
+// MATCHING LOADER
+function startMatching() {
+    const loader = document.getElementById("loader");
+    loader.style.display = "block";
 
-// Run on scroll
-window.addEventListener('scroll', showOnScroll);
+    setTimeout(() => {
+        loader.innerHTML = "Connected 💙";
+    }, 3000);
+}
 
-let timeLeft = 300; // 5 minutes
+// DARK MODE
+function toggleDark() {
+    document.body.classList.toggle("dark");
+
+    const btn = document.getElementById("darkBtn");
+
+    if (document.body.classList.contains("dark")) {
+        btn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+    } else {
+        btn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// LOAD SAVED THEME
+function loadTheme() {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("darkBtn").textContent = "☀️";
+    }
+}
+
+// TIMER
+let timeLeft = 300;
 
 function startTimer() {
     const timer = document.getElementById("timer");
+
+    if (!timer) return;
 
     const interval = setInterval(() => {
         let minutes = Math.floor(timeLeft / 60);
@@ -38,16 +71,65 @@ function startTimer() {
     }, 1000);
 }
 
-window.onload = startTimer;
-
+// REPORT
 function reportUser() {
     alert("User reported. Thank you for keeping CalmConnect safe 💙");
 }
-
+//SOS popup
 function showSOS() {
-    document.getElementById("sos-popup").style.display = "block";
+    const popup = document.getElementById("sos-popup");
+    if (popup) {
+        popup.style.display = "block";
+    }
 }
 
 function closeSOS() {
-    document.getElementById("sos-popup").style.display = "none";
+    const popup = document.getElementById("sos-popup");
+    if (popup) {
+        popup.style.display = "none";
+    }
 }
+
+// TYPING EFFECT
+function typingEffect() {
+    const typing = document.getElementById("typing");
+    if (!typing) return;
+
+    setTimeout(() => {
+        typing.style.display = "block";
+    }, 2000);
+
+    setTimeout(() => {
+        typing.style.display = "none";
+    }, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const sosBtn = document.getElementById("sosBtn");
+    const closeBtn = document.getElementById("closeSOS");
+
+    if (matchBtn) {
+        matchBtn.addEventListener("click", startMatching);
+    }
+
+    if (sosBtn) {
+        sosBtn.addEventListener("click", showSOS);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeSOS);
+    }
+
+});
+
+// RUN EVERYTHING SAFELY
+window.addEventListener("load", () => {
+    showOnScroll();
+    startTimer();
+    loadTheme();
+    typingEffect();
+});
+
+window.addEventListener("scroll", showOnScroll);
