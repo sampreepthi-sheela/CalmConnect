@@ -79,9 +79,10 @@
     <p>No personal data. No judgment. Only kindness.</p>
 </section>
 
-<button function="StartMatching" id="matchBtn">
-    Find a Connection
-</button>
+<button id="matchBtn">Find a Connection</button>
+<div id="loader" class="loader">
+    <p>Finding someone who understands you...</p>
+</div>
 
 <section class="chat-preview fade-in">
     <h2>A Safe Conversation Space</h2>
@@ -97,7 +98,7 @@
 
             <div class="chat-controls">
                 <button onclick="reportUser()">⚠️</button>
-                <button id="sosBtn">🆘</button>          
+               <button id="sosBtn">🆘</button>        
               </div>
         </div>
 
@@ -135,17 +136,16 @@
         </div>
 
     </div>
-</section>
-
-<section>
-<div id="sos-popup" class="sos-popup">
+    <div id="sos-popup" class="sos-popup">
     <div class="sos-content">
         <h3>You are not alone 💙</h3>
-        <p>If you're in distress, please reach out to someone you trust or a helpline.</p>
-        <button id="closeSOS()">Close</button>
+        <p>If you're feeling overwhelmed, please reach out to someone you trust or a helpline.</p>
+        <button id="closeSOS">Close</button>
     </div>
 </div>
 </section>
+
+
 
 <!-- FOOTER -->
 <footer class="footer">
