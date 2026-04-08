@@ -152,6 +152,46 @@ button:hover {
     font-style: italic;
 }
 
+/* ROLE BUTTONS IN HERO */
+.role-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.role-btn {
+    width: 200px;
+    height: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* SAYER */
+.sharer {
+    background: linear-gradient(135deg, #ff6f91, #ff9671);
+}
+
+/* LISTENER */
+.listener {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+
+/* HOVER EFFECT */
+.role-btn:hover {
+    transform: scale(1.08);
+}
+
+/* CLICK EFFECT */
+.role-btn:active {
+    transform: scale(0.95);
+}
+
 /* CHAT BOX */
 .chat-box {
     max-width: 380px;
