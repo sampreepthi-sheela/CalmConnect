@@ -39,6 +39,16 @@ function loadTheme() {
     }
 }
 
+function selectRole(role) {
+    console.log("Selected role:", role);
+
+    // You can store it for later
+    localStorage.setItem("role", role);
+
+    // Optional: scroll to match button or trigger matching
+    document.getElementById("matchBtn").scrollIntoView({ behavior: "smooth" });
+}
+
 // TIMER
 let timeLeft = 300;
 
