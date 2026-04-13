@@ -20,6 +20,7 @@
             <li><a href="#">How</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Start</a></li>
+            <li><a href="#">Login</a></li>
         </ul>
 
         <button id="darkBtn" onclick="toggleDark()">🌙</button>
@@ -97,58 +98,119 @@
 
 <section class="chat-preview fade-in">
     <h2>A Safe Conversation Space</h2>
+<section class="chat-preview fade-in">
+    <h2>A Safe Conversation Space</h2>
 
-    <div class="chat-box">
+    <div class="chat-container">
 
-        <!-- HEADER -->
-        <div class="chat-header">
-            <div class="user-info">
-                <span class="dot"></span>
-                <strong>Cloud_27</strong>
+        <!-- CHAT 1 -->
+        <div class="chat-box">
+            <div class="chat-header">
+                <div class="user-info">
+                    <strong>Star_0105</strong>
+                </div>
+                <div class="chat-controls">
+                    <button onclick="reportUser()">⚠️</button>
+                    <button onclick="showSOS()">🆘</button>
+                </div>
             </div>
 
-            <div class="chat-controls">
-                <button onclick="reportUser()">⚠️</button>
-               <button id="sosBtn">🆘</button>        
-              </div>
-        </div>
-        
-        
-
-        <!-- MESSAGES -->
-        <div class="chat-messages">
-
-            <div class="message stranger">
-                <p>I feel really overwhelmed today...</p>
-                <span class="time">10:02</span>
+            <div class="chat-messages">
+                <div class="message stranger">
+                    <p>I feel really overwhelmed today...</p>
+                </div>
+                <div class="message you">
+                    <p>I'm here. Do you want to talk about it?</p>
+                </div>
+                <div class="message stranger">
+                    <p>It just feels like no one understands me.</p>
+                </div>
+                <p class="typing">User is typing...</p>
             </div>
 
-            <div class="message you">
-                <p>I'm here. Do you want to talk about it?</p>
-                <span class="time">10:03</span>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." />
+                <button>➤</button>
             </div>
 
-            <div class="message stranger">
-                <p>It just feels like no one understands me.</p>
-                <span class="time">10:04</span>
+            <div class="chat-footer">
+                <span class="timer">05:00</span>
             </div>
-
-            <p id="typing" class="typing">Cloud_27 is typing...</p>
-
-        </div>
-
-        <!-- INPUT BAR -->
-        <div class="chat-input">
-            <input type="text" placeholder="Type your message..." />
-            <button>➤</button>
         </div>
 
-        <!-- TIMER -->
-        <div class="chat-footer">
-            <span id="timer">05:00</span>
+        <!-- CHAT 2 -->
+        <div class="chat-box">
+            <div class="chat-header">
+                <div class="user-info">
+                    <strong>Sky_19</strong>
+                </div>
+                <div class="chat-controls">
+                    <button onclick="reportUser()">⚠️</button>
+                    <button onclick="showSOS()">🆘</button>
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message stranger">
+                    <p>I feel really alone these days...</p>
+                </div>
+                <div class="message you">
+                    <p>I'm here. You don’t have to go through it alone.</p>
+                </div>
+                <div class="message stranger">
+                    <p>It just feels empty sometimes.</p>
+                </div>
+                <p class="typing">User is typing...</p>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." />
+                <button>➤</button>
+            </div>
+
+            <div class="chat-footer">
+                <span class="timer">05:00</span>
+            </div>
+        </div>
+
+        <!-- CHAT 3 -->
+        <div class="chat-box">
+            <div class="chat-header">
+                <div class="user-info">
+                    <strong>Moon_42</strong>
+                </div>
+                <div class="chat-controls">
+                    <button onclick="reportUser()">⚠️</button>
+                    <button onclick="showSOS()">🆘</button>
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message stranger">
+                    <p>I keep overthinking everything...</p>
+                </div>
+                <div class="message you">
+                    <p>That sounds exhausting. Want to talk about it?</p>
+                </div>
+                <div class="message stranger">
+                    <p>Yeah… I can’t seem to stop.</p>
+                </div>
+                <p class="typing">User is typing...</p>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." />
+                <button>➤</button>
+            </div>
+
+            <div class="chat-footer">
+                <span class="timer">05:00</span>
+            </div>
         </div>
 
     </div>
+</section>
+
     <div id="sos-popup" class="sos-popup">
     <div class="sos-content">
         <h3>You are not alone 💙</h3>
