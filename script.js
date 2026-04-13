@@ -95,6 +95,7 @@ function closeSOS() {
 // TYPING EFFECT
 function typingEffect() {
     const typing = document.getElementById("typing");
+    typing.textContent = "Sky_19 is typing...";
     if (!typing) return;
 
     setTimeout(() => {
@@ -179,5 +180,56 @@ document.addEventListener("DOMContentLoaded", function () {
             popup.style.display = "none";
         });
     }
+
+});
+
+document.querySelectorAll(".chat-input button").forEach((btn, index) => {
+
+    btn.addEventListener("click", function () {
+
+        const chatScreen = btn.closest(".chat-screen");
+        const input = chatScreen.querySelector("input");
+        const messages = chatScreen.querySelector(".chat-messages");
+        const typing = chatScreen.querySelector(".typing");
+
+        if (input.value.trim() === "") return;
+
+        // USER MESSAGE
+        const userMsg = document.createElement("div");
+        userMsg.classList.add("message", "you");
+        userMsg.textContent = input.value;
+        messages.appendChild(userMsg);
+
+        input.value = "";
+
+        // SHOW TYPING
+        typing.style.display = "block";
+
+        // AUTO REPLY AFTER DELAY
+        setTimeout(() => {
+
+            typing.style.display = "none";
+
+            const reply = document.createElement("div");
+            reply.classList.add("message", "stranger");
+
+            const replies = [
+                "I understand how you feel...",
+                "That sounds really tough.",
+                "You're not alone in this.",
+                "Do you want to talk more about it?",
+                "I'm here for you 💙"
+            ];
+
+            reply.textContent =
+                replies[Math.floor(Math.random() * replies.length)];
+
+            messages.appendChild(reply);
+
+            messages.scrollTop = messages.scrollHeight;
+
+        }, 2000);
+
+    });
 
 });
