@@ -1,391 +1,235 @@
-/* RESET */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    text-align: center;
-    background: linear-gradient(135deg, #eef2ff, #f8faff);
+console.log("JS loaded");
+
+// FADE-IN ANIMATION
+const elements = document.querySelectorAll('.fade-in');
+
+function showOnScroll() {
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (position < screenHeight - 100) {
+            el.classList.add('show');
+        }
+    });
 }
 
-/* SOFT GLOW */
-body::before {
-    content: "";
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    background: #a5b4fc;
-    filter: blur(120px);
-    top: -100px;
-    left: -100px;
-    z-index: -1;
-}
+// DARK MODE
+function toggleDark() {
+    document.body.classList.toggle("dark");
 
-/* SMOOTH TRANSITIONS */
-body, section, .info-box, .chat-box, .navbar {
-    transition: all 0.3s ease;
-}
+    const btn = document.getElementById("darkBtn");
 
-/* GENERAL SECTIONS */
-section {
-    padding: 70px 20px;
-}
-
-/* HEADINGS */
-h1, h2 {
-    margin-bottom: 15px;
-}
-
-p {
-    max-width: 600px;
-    margin: auto;
-}
-
-/* BUTTONS */
-button {
-    background: linear-gradient(135deg, #6c8cff, #a084ff);
-    border: none;
-    color: white;
-    border-radius: 30px;
-    padding: 12px 25px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(108,140,255,0.4);
-}
-
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-}
-
-.logo {
-    color: #6c8cff;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #6c8cff;
-}
-
-/* DARK BUTTON */
-#darkBtn {
-    background: #eef2ff;
-    padding: 6px 10px;
-    border-radius: 50%;
-}
-
-/* HERO */
-.hero {
-    background: linear-gradient(to bottom, #dfe9f3, #ffffff);
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-}
-
-/* INFO SECTION */
-.info-section {
-    background: #f4f6ff;
-}
-
-.info-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.info-box {
-    width: 300px;
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: 0.3s ease;
-}
-
-.info-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-}
-
-.info-box h2 {
-    color: #6c8cff;
-}
-
-.info-box ul {
-    text-align: left;
-}
-
-.loader {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-}
-
-/* ROLE BUTTONS IN HERO */
-.role-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.role-btn {
-    width: 200px;
-    height: 100px;
-    font-size: 20px;
-    border: none;
-    border-radius: 18px;
-    cursor: pointer;
-    color: white;
-    transition: 0.3s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* SAYER */
-.sharer {
-    background: linear-gradient(135deg, #ff6f91, #ff9671);
-}
-
-/* LISTENER */
-.listener {
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-}
-
-/* HOVER EFFECT */
-.role-btn:hover {
-    transform: scale(1.08);
-}
-
-/* CLICK EFFECT */
-.role-btn:active {
-    transform: scale(0.95);
-}
-
-/* CHAT BOX */
-.chat-box {
-    max-width: 380px;
-    margin: auto;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.chat-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.chat-box {
-    width: 300px;
-}
-
-.typing {
-    font-size: 12px;
-    color: #777;
-    font-style: italic;
-    margin-top: 5px;
-}
-
-/* HEADER */
-.chat-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 15px;
-    background: #6c8cff;
-    color: white;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff88;
-    border-radius: 50%;
-}
-
-/* MESSAGES */
-.chat-messages {
-    padding: 15px;
-    min-height: 250px;
-    max-height: 300px;
-    overflow-y: auto;
-    background: #f7f9fc;
-}
-
-.message {
-    margin-bottom: 10px;
-    max-width: 75%;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-.stranger {
-    background: #e4e9ff;
-}
-
-.you {
-    background: #6c8cff;
-    color: white;
-    margin-left: auto;
-}
-
-/* INPUT */
-.chat-input {
-    display: flex;
-    border-top: 1px solid #eee;
-}
-
-.chat-input input {
-    flex: 1;
-    border: none;
-    padding: 10px;
-}
-
-.chat-input button {
-    background: #6c8cff;
-}
-
-/* TIMER */
-.chat-footer {
-    text-align: center;
-    font-size: 12px;
-    padding: 5px;
-}
-.sos-popup {
-    display: none;
-}
-.sos-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-}
-
-.sos-content {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    width: 300px;
-    margin: 150px auto;
-    text-align: center;
-}
-
-/* FOOTER */
-.footer {
-    background: #f1f5f9;
-    padding: 40px 20px;
-    margin-top: 40px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.footer-section p {
-    font-size: 14px;
-    color: #555;
-}
-
-.footer-bottom {
-    margin-top: 20px;
-    font-size: 13px;
-}
-
-/* DARK MODE */
-.dark {
-    background: #0f172a;
-    color: #e2e8f0;
-}
-
-.dark .navbar {
-    background: #1e293b;
-}
-
-.dark section {
-    background: #0f172a;
-}
-
-.dark .info-box,
-.dark .chat-box {
-    background: #1e293b;
-    color: #e2e8f0;
-}
-
-.dark .chat-messages {
-    background: #020617;
-}
-
-.dark .stranger {
-    background: #334155;
-}
-
-.dark button {
-    background: linear-gradient(135deg, #4f46e5, #7c3aed);
-}
-
-.dark .footer {
-    background: #1e293b;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-direction: column;
-    }
-
-    .info-container {
-        flex-direction: column;
-    }
-
-    .chat-box {
-        width: 90%;
+    if (document.body.classList.contains("dark")) {
+        btn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+    } else {
+        btn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
     }
 }
+
+// LOAD SAVED THEME
+function loadTheme() {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("darkBtn").textContent = "☀️";
+    }
+}
+
+function selectRole(role) {
+    console.log("Selected role:", role);
+
+    // You can store it for later
+    localStorage.setItem("role", role);
+
+    // Optional: scroll to match button or trigger matching
+    document.getElementById("matchBtn").scrollIntoView({ behavior: "smooth" });
+}
+
+// TIMER
+let timeLeft = 300;
+
+function startTimer() {
+    const timer = document.getElementById("timer");
+
+    if (!timer) return;
+
+    const interval = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        timer.textContent = 
+            `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(interval);
+            alert("Session ended. Take a moment to reflect 💙");
+        }
+    }, 1000);
+}
+
+// REPORT
+function reportUser() {
+    alert("User reported. Thank you for keeping CalmConnect safe 💙");
+}
+//SOS popup
+function showSOS() {
+    const popup = document.getElementById("sos-popup");
+    if (popup) {
+        popup.style.display = "block";
+    }
+}
+
+function closeSOS() {
+    const popup = document.getElementById("sos-popup");
+    if (popup) {
+        popup.style.display = "none";
+    }
+}
+
+// TYPING EFFECT
+function typingEffect() {
+    const typing = document.getElementById("typing");
+    typing.textContent = "Sky_19 is typing...";
+    if (!typing) return;
+
+    setTimeout(() => {
+        typing.style.display = "block";
+    }, 2000);
+
+    setTimeout(() => {
+        typing.style.display = "none";
+    }, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const sosBtn = document.getElementById("sosBtn");
+    const closeBtn = document.getElementById("closeSOS");
+
+    if (matchBtn) {
+        matchBtn.addEventListener("click", startMatching);
+    }
+
+    if (sosBtn) {
+        sosBtn.addEventListener("click", showSOS);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeSOS);
+    }
+
+});
+
+// RUN EVERYTHING SAFELY
+window.addEventListener("load", () => {
+    showOnScroll();
+    startTimer();
+    loadTheme();
+    typingEffect();
+});
+
+window.addEventListener("scroll", showOnScroll);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const sosBtn = document.getElementById("sosBtn");
+    const closeBtn = document.getElementById("closeSOS");
+
+    const loader = document.getElementById("loader");
+    const popup = document.getElementById("sos-popup");
+
+    // START MATCHING
+   document.addEventListener("DOMContentLoaded", function () {
+
+    const matchBtn = document.getElementById("matchBtn");
+    const loader = document.getElementById("loader");
+
+    if (matchBtn && loader) {
+        matchBtn.addEventListener("click", function () {
+
+            console.log("Button clicked"); // DEBUG
+
+            loader.style.display = "block";
+
+            setTimeout(() => {
+                loader.innerHTML = "Connected 💙";
+            }, 3000);
+        });
+    }
+
+});
+
+    // SOS OPEN
+    if (sosBtn) {
+        sosBtn.addEventListener("click", function () {
+            popup.style.display = "block";
+        });
+    }
+
+    // SOS CLOSE
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+            popup.style.display = "none";
+        });
+    }
+
+});
+
+document.querySelectorAll(".chat-input button").forEach((btn, index) => {
+
+    btn.addEventListener("click", function () {
+
+        const chatScreen = btn.closest(".chat-screen");
+        const input = chatScreen.querySelector("input");
+        const messages = chatScreen.querySelector(".chat-messages");
+        const typing = chatScreen.querySelector(".typing");
+
+        if (input.value.trim() === "") return;
+
+        // USER MESSAGE
+        const userMsg = document.createElement("div");
+        userMsg.classList.add("message", "you");
+        userMsg.textContent = input.value;
+        messages.appendChild(userMsg);
+
+        input.value = "";
+
+        // SHOW TYPING
+        typing.style.display = "block";
+
+        // AUTO REPLY AFTER DELAY
+        setTimeout(() => {
+
+            typing.style.display = "none";
+
+            const reply = document.createElement("div");
+            reply.classList.add("message", "stranger");
+
+            const replies = [
+                "I understand how you feel...",
+                "That sounds really tough.",
+                "You're not alone in this.",
+                "Do you want to talk more about it?",
+                "I'm here for you 💙"
+            ];
+
+            reply.textContent =
+                replies[Math.floor(Math.random() * replies.length)];
+
+            messages.appendChild(reply);
+
+            messages.scrollTop = messages.scrollHeight;
+
+        }, 2000);
+
+    });
+
+});
